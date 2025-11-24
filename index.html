@@ -34,7 +34,7 @@
   </script>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="font-sans bg-[color:#fdf7ec] text-slate-900">
+<body class="font-sans bg-[color:#fdf7ec] text-slate-900 antialiased">
   <!--
     index.html
     - Simple UI for the Library DS Tracker demo.
@@ -49,44 +49,44 @@
       * `searchBox` => search input used to filter tables
   -->
   <div class="min-h-screen flex flex-col">
-    <header class="bg-white shadow-sm">
-      <div class="mx-auto flex w-full max-w-6xl flex-col items-center gap-6 px-4 py-8 text-center sm:flex-row sm:items-center sm:justify-between sm:px-6 sm:text-left">
+    <header class="bg-white/95 shadow-sm backdrop-blur">
+      <div class="mx-auto flex w-full max-w-6xl flex-col items-center gap-4 px-4 py-5 text-center sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:px-6 sm:py-8 sm:text-left">
         <div>
-          <p class="text-xs uppercase tracking-[0.4em] text-slate-400">Linked List · Hash Table</p>
-          <h1 class="text-3xl font-semibold text-slate-900">Campus Library Control Center</h1>
-          <p class="mt-2 max-w-xl text-sm text-slate-500">
+          <p class="text-[0.65rem] tracking-[0.35em] uppercase text-slate-400 sm:text-xs sm:tracking-[0.4em]">Linked List · Hash Table</p>
+          <h1 class="mt-1 text-2xl font-semibold text-slate-900 sm:text-3xl">Campus Library Control Center</h1>
+          <p class="mt-2 max-w-xl text-xs text-slate-500 sm:text-sm">
             Fast inventory powered by hashing for O(1) lookups with linked list chaining. Monitor totals, borrowing, and returns in one tidy panel.
           </p>
         </div>
-        <div class="rounded-xl bg-brand-50 px-5 py-4 text-center text-sm text-brand-700 shadow-sm sm:text-right">
+        <!-- <div class="rounded-xl bg-brand-50 px-5 py-4 text-center text-sm text-brand-700 shadow-sm sm:text-right">
           <p class="font-semibold">What's under the hood?</p>
           <p>Custom DS implementation + Tailwind UI + light animations.</p>
-        </div>
+        </div> -->
       </div>
     </header>
 
-    <main class="mx-auto w-full max-w-6xl flex-1 space-y-10 px-4 py-10 sm:px-6">
-      <section class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4" aria-live="polite">
-        <article class="card">
+    <main class="mx-auto w-full max-w-6xl flex-1 space-y-8 px-3 pb-8 pt-6 sm:space-y-10 sm:px-6 sm:pb-10 sm:pt-10">
+      <section class="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4" aria-live="polite">
+        <article class="card w-full">
           <p class="text-sm text-slate-500">Total Books</p>
           <p id="statTotal" class="stat-value">0</p>
         </article>
-        <article class="card">
+        <article class="card w-full">
           <p class="text-sm text-slate-500">Available Now</p>
           <p id="statAvailable" class="stat-value">0</p>
         </article>
-        <article class="card">
+        <article class="card w-full">
           <p class="text-sm text-slate-500">Borrowed Copies</p>
           <p id="statBorrowed" class="stat-value">0</p>
         </article>
-        <article class="card">
+        <article class="card w-full">
           <p class="text-sm text-slate-500">Active Borrowers</p>
           <p id="statStudents" class="stat-value">0</p>
         </article>
       </section>
 
-      <section class="grid grid-cols-1 gap-6 lg:grid-cols-2">
-        <article class="panel space-y-4">
+      <section class="grid grid-cols-1 items-stretch gap-5 lg:gap-6 lg:grid-cols-2">
+        <article class="panel w-full space-y-4 mx-auto max-w-xl sm:max-w-none sm:mx-0">
           <div>
             <h2 class="text-xl font-semibold text-slate-900">Add a book</h2>
             <p class="text-sm text-slate-500">Store titles directly inside the DS hash table.</p>
@@ -108,33 +108,31 @@
           </form>
         </article>
 
-        <article class="panel space-y-4">
-          <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <h2 class="text-xl font-semibold text-slate-900">Borrow a book</h2>
-              <p class="text-sm text-slate-500">Select any title with available copies.</p>
-            </div>
-            <button id="resetDemo" type="button" class="btn-ghost w-full sm:w-auto">Reset demo data</button>
+        <article class="panel w-full space-y-4 mx-auto max-w-xl sm:max-w-none sm:mx-0">
+          <div>
+            <h2 class="text-xl font-semibold text-slate-900">Borrow a book</h2>
+            <p class="text-sm text-slate-500">Select any title with available copies.</p>
           </div>
-          <form id="borrowForm" class="grid gap-4">
-            <label class="field">
+          <button id="resetDemo" type="button" class="btn-ghost w-full mb-2">Reset demo data</button>
+          <form id="borrowForm" class="grid gap-4 w-full">
+            <label class="field w-full">
               <span>Select book</span>
-              <select id="borrowBookSelect" required class="bg-white"></select>
+              <select id="borrowBookSelect" required class="bg-white w-full"></select>
             </label>
-            <label class="field">
+            <label class="field w-full">
               <span>Student name</span>
-              <input id="studentName" type="text" required placeholder="Aditi Sharma">
+              <input id="studentName" type="text" required placeholder="Aditi Sharma" class="w-full">
             </label>
-            <label class="field">
+            <label class="field w-full">
               <span>Return date</span>
-              <input id="returnDate" type="date" required>
+              <input id="returnDate" type="date" required class="w-full">
             </label>
             <button class="btn-primary w-full sm:w-auto" type="submit">Confirm borrow</button>
           </form>
         </article>
       </section>
 
-      <section class="panel space-y-4">
+      <section class="panel w-full space-y-4">
         <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 class="text-xl font-semibold text-slate-900">Available inventory</h2>
@@ -160,7 +158,7 @@
             </label>
           </div>
         </div>
-        <div class="table-wrapper">
+        <div class="table-wrapper rounded-2xl border border-slate-100 bg-white/50">
           <table class="w-full text-left text-xs text-slate-600 sm:text-sm" data-stack="true">
             <thead class="text-xs uppercase tracking-widest text-slate-400">
               <tr>
@@ -176,12 +174,12 @@
         </div>
       </section>
 
-      <section class="panel space-y-4">
+      <section class="panel w-full space-y-4">
         <div>
           <h2 class="text-xl font-semibold text-slate-900">Borrowed &amp; returns</h2>
           <p class="text-sm text-slate-500">Mark books as returned and watch stats adjust immediately.</p>
         </div>
-        <div class="table-wrapper">
+        <div class="table-wrapper rounded-2xl border border-slate-100 bg-white/50">
           <table class="w-full text-left text-xs text-slate-600 sm:text-sm" data-stack="true">
             <thead class="text-xs uppercase tracking-widest text-slate-400">
               <tr>
@@ -200,8 +198,7 @@
 
     <footer class="bg-white/80">
       <div class="mx-auto flex w-full max-w-6xl flex-col gap-2 px-4 py-8 text-center text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between sm:px-6 sm:text-left">
-        <p>Built for the Data Structures lab · Hash table + linked list chaining demo.</p>
-        <p class="text-slate-400">Concept UI crafted with Tailwind CSS &amp; a helpful AI assistant.</p>
+        <p>Built With the Data Structures · Hash table + linked list.</p>
       </div>
     </footer>
   </div>

@@ -216,11 +216,11 @@ function borrowBook(bookId, studentName, returnDate) {
     borrowedAt: new Date().toISOString()
   });
 
-  inventory.set(bookId, book); // update stored book entry
+  inventory.set(bookId, book); //! update stored book entry
   refreshUI();
 }
 
-// Return a book: removes borrower entry by student name
+//? Return a book: removes borrower entry by student name
 function returnBook(bookId, studentName) {
   const book = inventory.get(bookId);
   if (!book) return;
@@ -232,12 +232,12 @@ function returnBook(bookId, studentName) {
   refreshUI();
 }
 
-// Helper: get current search term from UI (lowercased)
+//* Helper: get current search term from UI (lowercased)
 function getSearchTerm() {
   return dom.searchBox ? dom.searchBox.value.trim().toLowerCase() : "";
 }
 
-// Flexible search matcher: supports multi-word partial matches and ignores spaces
+//* Flexible search matcher: supports multi-word partial matches and ignores spaces
 function matchesSearch(text, term) {
   if (!term) return true;
   const base = String(text).toLowerCase();

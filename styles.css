@@ -26,6 +26,8 @@ body {
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
   border: 1px solid rgba(15, 23, 42, 0.06);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .card:hover {
@@ -46,6 +48,10 @@ body {
   padding: 1.75rem;
   box-shadow: 0 18px 35px rgba(15, 23, 42, 0.07);
   border: 1px solid rgba(15, 23, 42, 0.05);
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .field {
@@ -58,13 +64,16 @@ body {
 }
 
 .field input,
-.field select {
+.field select,
+.field textarea {
   border-radius: 1rem;
   border: 1px solid rgba(15, 23, 42, 0.1);
   padding: 0.85rem 1rem;
   font-size: 1rem;
   color: #0f172a;
   transition: border 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .field input:focus,
@@ -111,6 +120,7 @@ body {
 
 .table-wrapper {
   overflow-x: auto;
+  width: 100%;
 }
 
 [data-stack="true"] tbody tr {
@@ -179,15 +189,6 @@ body {
 }
 
 @media (max-width: 600px) {
-  header h1 {
-    font-size: 2.2rem;
-    line-height: 1.2;
-  }
-
-  header p {
-    font-size: 0.95rem;
-  }
-
   .panel h2 {
     font-size: 1.2rem;
   }
@@ -197,29 +198,115 @@ body {
   }
 
   .table-wrapper {
-    margin-inline: -0.25rem;
+    margin-inline: 0;
+    padding-inline: 0.25rem;
   }
 }
 
 @media (max-width: 480px) {
   .card {
-    padding: 1.1rem;
+    padding: 1rem;
   }
 
   .panel {
-    padding: 1.25rem;
+    padding: 1rem;
+    border-radius: 1.35rem;
+  }
+
+  .field {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .field span {
+    font-size: 0.85rem;
   }
 
   .field input,
   .field select {
     font-size: 0.95rem;
-    padding: 0.75rem 0.9rem;
+    padding: 0.75rem 0.85rem;
+    max-width: 100%;
+    width: 100%;
+    border-radius: 0.85rem;
+  }
+
+  #borrowForm .field {
+    width: 100%;
+  }
+
+  #borrowForm input,
+  #borrowForm select {
+    width: 100%;
+    max-width: 100%;
   }
 
   .btn-primary,
   .btn-ghost {
     width: 100%;
     text-align: center;
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .btn-ghost {
+    letter-spacing: 0.08em;
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 420px) {
+  body {
+    padding: 0;
+  }
+
+  .stat-value {
+    font-size: 1.55rem;
+  }
+
+  header h1 {
+    font-size: 1.85rem;
+  }
+
+  header p {
+    font-size: 0.85rem;
+  }
+
+  .panel {
+    padding: 0.95rem;
+  }
+
+  .panel h2 {
+    font-size: 1.1rem;
+  }
+
+  .field input,
+  .field select {
+    padding: 0.7rem 0.8rem;
+    font-size: 0.9rem;
+    width: 100%;
+  }
+
+  #borrowForm {
+    width: 100%;
+  }
+
+  #borrowForm .field {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #borrowForm input,
+  #borrowForm select {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .btn-ghost {
+    font-size: 0.7rem;
+    padding: 0.7rem 0.85rem;
+    letter-spacing: 0.08em;
   }
 }
 
