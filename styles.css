@@ -1,0 +1,199 @@
+:root {
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+}
+
+/*
+  styles.css
+  - Visual styles for the Library DS Tracker demo.
+  - Keeps a soft card/panel aesthetic and responsive stacked tables for mobile.
+  - Key utility classes referenced in HTML/JS:
+    * `.card` - small statistic cards at the top
+    * `.panel` - larger white panels that hold forms and tables
+    * `.field` - used for form label + input groups
+    * `.btn-primary`, `.btn-ghost` - primary and secondary buttons
+    * `.tag`, `.tag.success`, `.tag.danger` - small status badges used by JS in tables
+*/
+
+body {
+  margin: 0;
+  font-family: inherit;
+}
+
+.card {
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1.5rem;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+}
+
+.stat-value {
+  margin-top: 0.35rem;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.panel {
+  border-radius: 1.75rem;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1.75rem;
+  box-shadow: 0 18px 35px rgba(15, 23, 42, 0.07);
+  border: 1px solid rgba(15, 23, 42, 0.05);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.field input,
+.field select {
+  border-radius: 1rem;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  color: #0f172a;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: #15803d;
+  box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.15);
+  outline: none;
+}
+
+.btn-primary {
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #15803d, #166534);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.85rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 15px 30px rgba(21, 128, 61, 0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 20px 35px rgba(21, 128, 61, 0.35);
+}
+
+.btn-ghost {
+  border-radius: 0.75rem;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  padding: 0.6rem 0.9rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: transparent;
+  cursor: pointer;
+  color: #4b5563;
+}
+
+.btn-ghost:hover {
+  color: #166534;
+  border-color: rgba(21, 128, 61, 0.45);
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+[data-stack="true"] tbody tr {
+  transition: background 0.2s ease;
+}
+
+[data-stack="true"] tbody tr:hover {
+  background: rgba(15, 23, 42, 0.03);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 999px;
+  padding: 0.2rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.tag.success {
+  background: rgba(16, 185, 129, 0.15);
+  color: #047857;
+}
+
+.tag.danger {
+  background: rgba(239, 68, 68, 0.15);
+  color: #b91c1c;
+}
+
+@media (max-width: 640px) {
+  [data-stack="true"],
+  [data-stack="true"] thead,
+  [data-stack="true"] tbody,
+  [data-stack="true"] th,
+  [data-stack="true"] td,
+  [data-stack="true"] tr {
+    display: block;
+  }
+
+  [data-stack="true"] thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    border: 0;
+  }
+
+  [data-stack="true"] tr {
+    margin-bottom: 1rem;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 1rem;
+    padding: 0.75rem 0.5rem;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+  }
+
+  [data-stack="true"] td {
+    border: none;
+    padding: 0.65rem 1rem 0.65rem 45%;
+    position: relative;
+    font-weight: 600;
+    color: #0f172a;
+  }
+
+  [data-stack="true"] td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #94a3b8;
+    font-weight: 700;
+  }
+
+  [data-stack="true"] td:last-child {
+    border-bottom: none;
+  }
+}
+
