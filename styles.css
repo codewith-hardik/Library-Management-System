@@ -141,6 +141,51 @@ body {
   color: #b91c1c;
 }
 
+/* Responsive refinements for cards, panels, and controls */
+@media (max-width: 1024px) {
+  .panel {
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .card {
+    border-radius: 1rem;
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .stat-value {
+    font-size: 1.75rem;
+  }
+
+  .panel {
+    padding: 1.35rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 1.1rem;
+  }
+
+  .panel {
+    padding: 1.25rem;
+  }
+
+  .field input,
+  .field select {
+    font-size: 0.95rem;
+    padding: 0.75rem 0.9rem;
+  }
+
+  .btn-primary,
+  .btn-ghost {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 @media (max-width: 640px) {
   [data-stack="true"],
   [data-stack="true"] thead,

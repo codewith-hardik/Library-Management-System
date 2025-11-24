@@ -40,9 +40,9 @@
       * `resetDemo` => button that seeds demo data
       * `searchBox` => search input used to filter tables
   -->
-  <div class="min-h-screen">
+  <div class="min-h-screen flex flex-col">
     <header class="bg-white shadow-sm">
-      <div class="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-8 sm:flex-row sm:items-center sm:justify-between">
+      <div class="mx-auto flex w-full max-w-6xl flex-col items-center gap-6 px-4 py-8 text-center sm:flex-row sm:items-center sm:justify-between sm:px-6 sm:text-left">
         <div>
           <p class="text-xs uppercase tracking-[0.4em] text-slate-400">Linked List · Hash Table</p>
           <h1 class="text-3xl font-semibold text-slate-900">Campus Library Control Center</h1>
@@ -50,14 +50,14 @@
             Fast inventory powered by hashing for O(1) lookups with linked list chaining. Monitor totals, borrowing, and returns in one tidy panel.
           </p>
         </div>
-        <div class="rounded-xl bg-brand-50 px-5 py-4 text-sm text-brand-700">
+        <div class="rounded-xl bg-brand-50 px-5 py-4 text-center text-sm text-brand-700 shadow-sm sm:text-right">
           <p class="font-semibold">What's under the hood?</p>
           <p>Custom DS implementation + Tailwind UI + light animations.</p>
         </div>
       </div>
     </header>
 
-    <main class="mx-auto max-w-6xl space-y-10 px-6 py-10">
+    <main class="mx-auto w-full max-w-6xl flex-1 space-y-10 px-4 py-10 sm:px-6">
       <section class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" aria-live="polite">
         <article class="card">
           <p class="text-sm text-slate-500">Total Books</p>
@@ -153,7 +153,7 @@
           </div>
         </div>
         <div class="table-wrapper">
-          <table class="w-full text-left text-sm text-slate-600" data-stack="true">
+          <table class="w-full text-left text-xs text-slate-600 sm:text-sm" data-stack="true">
             <thead class="text-xs uppercase tracking-widest text-slate-400">
               <tr>
                 <th class="py-3 pr-6">Title</th>
@@ -174,7 +174,7 @@
           <p class="text-sm text-slate-500">Mark books as returned and watch stats adjust immediately.</p>
         </div>
         <div class="table-wrapper">
-          <table class="w-full text-left text-sm text-slate-600" data-stack="true">
+          <table class="w-full text-left text-xs text-slate-600 sm:text-sm" data-stack="true">
             <thead class="text-xs uppercase tracking-widest text-slate-400">
               <tr>
                 <th class="py-3 pr-6">Student</th>
@@ -191,7 +191,7 @@
     </main>
 
     <footer class="bg-white/80">
-      <div class="mx-auto flex max-w-6xl flex-col gap-2 px-6 py-8 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+      <div class="mx-auto flex w-full max-w-6xl flex-col gap-2 px-4 py-8 text-center text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between sm:px-6 sm:text-left">
         <p>Built for the Data Structures lab · Hash table + linked list chaining demo.</p>
         <p class="text-slate-400">Concept UI crafted with Tailwind CSS &amp; a helpful AI assistant.</p>
       </div>
