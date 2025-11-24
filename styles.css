@@ -141,6 +141,20 @@ body {
   color: #b91c1c;
 }
 
+@media (min-width: 1280px) {
+  .panel {
+    padding: 2rem;
+  }
+
+  .card {
+    padding: 1.75rem;
+  }
+
+  .table-wrapper {
+    border-radius: 1.5rem;
+  }
+}
+
 /* Responsive refinements for cards, panels, and controls */
 @media (max-width: 1024px) {
   .panel {
@@ -161,6 +175,29 @@ body {
 
   .panel {
     padding: 1.35rem;
+  }
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+
+  header p {
+    font-size: 0.95rem;
+  }
+
+  .panel h2 {
+    font-size: 1.2rem;
+  }
+
+  .panel p {
+    font-size: 0.9rem;
+  }
+
+  .table-wrapper {
+    margin-inline: -0.25rem;
   }
 }
 
